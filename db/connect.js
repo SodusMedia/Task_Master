@@ -1,11 +1,9 @@
 const mongoose = require('mongoose')
 
 
-const connectionString =
-'mongodb+srv://sodus:sodus-pass_40@cluster0.1ievu.mongodb.net/TASK_MANAGER?retryWrites=true&w=majority&appName=Cluster0'
 
 const connectDB = (url) => {
-  return mongoose.connect (connectionString, {
+  return mongoose.connect (url, {
      //useNewUrlParser: true,
     // useCreateIndex: true,
     // useFindAndModify: false, 
