@@ -7,6 +7,21 @@ const TaskSchema = new mongoose.Schema({
         trim: true,
         maxlength: [100, 'name can not be more than 100 character'],
     },
+    description: {
+        type:String,
+        required: [true, 'must provide description'],
+        trim: true,
+        maxlength: [300, 'description can not be more than 300 character'],
+    },
+    date:{
+        type:Date, 
+        default: new Date()
+    },
+    priority: {
+        type: String,
+        default: "normal",
+        enum: ["high", "medium", "normal", "low"],
+      },
     completed: {
     type: Boolean,
     default: false,

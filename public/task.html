@@ -18,7 +18,7 @@
     <div class="container">
 
       <form class="single-task-form">
-        <h4>Edit Task</h4>
+        <h4>My Task</h4>
 
         <div class="form-control">
           <label>Task ID</label>
@@ -26,29 +26,35 @@
         </div>
 
         <div class="form-control">
-          <label for="name">Name</label>
+          <label for="name">Task Title</label>
           <input type="text" name="name" placeholder="task" class="task-edit-name" />
         </div>
+
+        <div class="form-control">
+          <label for="description">Description</label>
+          <input type="text" name="description" placeholder="task description" class="task-edit-description" />
+        </div>
+
 
         <div class="form-control">
           <label for="completed">completed</label>
           <input type="checkbox" name="completed" placeholder="t" class="task-edit-completed" />
         </div>
 
-        <button type="submit" class="block btn task-edit-btn">edit</button>
+        <button type="submit" class="block btn task-edit-btn">Edit</button>
         <div class="form-alert"></div>
       </form>
 
 
-      <a href="index.html" class="btn back-link">back to tasks</a>
+      <a href="index.html" class="btn back-link">back to task lists</a>
     </div>
     <!-- axios -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
       integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+      referrerpolicy="no-referrer"></script>
+      
     <!-- js -->
     <script src="./edit-task.js"></script>
   </body>

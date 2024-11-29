@@ -2,6 +2,7 @@ const tasksDOM = document.querySelector('.tasks')
 const loadingDOM = document.querySelector('.loading-text')
 const formDOM = document.querySelector('.task-form')
 const taskInputDOM = document.querySelector('.task-input')
+const descInputDOM = document.querySelector('.desc-input')
 const formAlertDOM = document.querySelector('.form-alert')
 
 // Load tasks from /api/tasks
@@ -20,8 +21,8 @@ const showTasks = async () => {
     
     const allTasks = tasks
       .map((task) => {
-        const { completed, _id: taskID, name } = task
-        return `<div class="single-task ${completed && 'task-completed'}">
+        const { completed, _id: taskID, name, description } = task
+        return `<div class="single-task ${ description, completed && 'task-completed'}">
 <h5><span><i class="far fa-check-circle"></i></span>${name}</h5>
 <div class="task-links">
 
@@ -71,9 +72,10 @@ tasksDOM.addEventListener('click', async (e) => {
 formDOM.addEventListener('submit', async (e) => {
   e.preventDefault()
   const name = taskInputDOM.value
+  const description = taskInputDOM.value
 
   try {
-    await axios.post('/api/v1/tasks', { name })
+    await axios.post('/api/v1/tasks', { name, description })
     showTasks()
     taskInputDOM.value = ''
     formAlertDOM.style.display = 'block'
@@ -83,6 +85,7 @@ formDOM.addEventListener('submit', async (e) => {
     formAlertDOM.style.display = 'block'
     formAlertDOM.innerHTML = `error, please try again`
   }
+
   setTimeout(() => {
     formAlertDOM.style.display = 'none'
     formAlertDOM.classList.remove('text-success')
