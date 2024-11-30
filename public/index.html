@@ -20,34 +20,75 @@
   </head>
   <body>
 
+    <h1>TaskMaster</h1>
+ 
+
     <form class="task-form">
-      <h4>task master</h4>
+      <h4>Title</h4>
       <div class="form-control">
-        <input
-          type="text"
-          name="name"
-          class="task-input"
-          placeholder="Task Title"
-        />
-        
-        <button type="submit" class="btn submit-btn">submit</button>
+        <input 
+        type="text" 
+        name="name" 
+        class= "task-input" 
+        placeholder="Task Title" required>
+     
+      
+        <h4>Description</h4>
+         <textarea  
+         type ="text"
+         name="description" 
+         class="task-input"
+         placeholder="Task description" 
+         ></textarea>
+      
+      
+        <h4>Date</h4>
+        <input 
+        type="date" 
+        name="date"
+        class="task-input" 
+        placeholder="date" >
+      
+      
+      <label for="priority">Priority</label> 
+      <select id="priority"> 
+        <option value="low">Low</option> 
+        <option value="medium">Medium</option> 
+        <option value="high">High</option> 
+      </select>
       </div>
 
+      <div>
+        <button type="submit" class="btn submit-btn">Add Task</button>
+      </div>
       <div class="form-alert"></div>
 
     </form>
 
 
-    <section class="tasks-container">
-      <p class="loading-text">Loading...</p>
+    
 
+    <section class="grid-container">
+    <div class="item item-grid-content">
+      <p class="loading-text">Loading...</p>  
 
-      <div class="tasks"><</div>
-        
-
-      
-
+      <div class="tasks"></div>
+    </div>
     </section>
+
+
+   
+      <section class="tasks-container">
+        <p class="loading-text">Loading...</p>  
+
+      <div class="tasks"></div>
+      </section> 
+
+     <!--  <a href="task.html" class="btn back-link">See task lists</a>
+    </div> -->
+
+  
+
     <!-- axios -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
@@ -56,6 +97,8 @@
       referrerpolicy="no-referrer"></script>
       
     <script src="./browser-app.js"></script>
+
+
     
   </body>
 </html>

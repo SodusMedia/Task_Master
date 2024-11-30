@@ -15,17 +15,24 @@ const TaskSchema = new mongoose.Schema({
     },
     date:{
         type:Date, 
-        default: new Date()
+        default: new Date(),
     },
     priority: {
         type: String,
         default: "normal",
         enum: ["high", "medium", "normal", "low"],
       },
+  
     completed: {
     type: Boolean,
     default: false,
     },
+   /*  userId: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User', 
+        required: true } */
+
+
 })
 
 

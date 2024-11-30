@@ -27,21 +27,53 @@
 
         <div class="form-control">
           <label for="name">Task Title</label>
-          <input type="text" name="name" placeholder="task" class="task-edit-name" />
+          <input 
+          type="text" 
+          name="name" 
+          placeholder="task" 
+          class="task-edit-name" />
         </div>
+
+
 
         <div class="form-control">
           <label for="description">Description</label>
-          <input type="text" name="description" placeholder="task description" class="task-edit-description" />
+          <input 
+          type="text" 
+          name="description" 
+          placeholder="task description" 
+          class="task-edit-description" />
         </div>
+
+        <div class="form-control">
+        <label for="date">Date</label>
+        <input 
+        type="date" 
+        name="date"
+        class="task-input" 
+        placeholder="date" >
+      
+      
+      <label for="priority">Priority</label> 
+      <select id="priority"> 
+        <option value="low">Low</option> 
+        <option value="medium">Medium</option> 
+        <option value="high">High</option> 
+      </select>
+      </div>
 
 
         <div class="form-control">
           <label for="completed">completed</label>
-          <input type="checkbox" name="completed" placeholder="t" class="task-edit-completed" />
+          <input 
+          type="checkbox" 
+          name="completed" 
+          placeholder="t" 
+          class="task-edit-completed" />
         </div>
 
         <button type="submit" class="block btn task-edit-btn">Edit</button>
+        
         <div class="form-alert"></div>
       </form>
 

@@ -72,11 +72,12 @@ html {
 }
 
 body {
+  display:block;
   background: var(--backgroundColor);
   color: var(--textColor);
   font-family: var(--bodyFont);
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 5;
 }
 
 p {
@@ -92,7 +93,7 @@ h5 {
   margin: 0;
   margin-bottom: 1.38rem;
   font-family: var(--headingFont);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.3;
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
@@ -100,6 +101,7 @@ h5 {
 
 h1 {
   font-size: 3.052rem;
+  color: var(--primary-800);
 }
 
 h2 {
@@ -125,11 +127,11 @@ small,
 }
 
 ul {
-  padding: 0;
-  list-style-type: none;
+  padding: 50px;
+  list-style-type:var(--fixed-width)
 }
 a {
-  text-decoration: none;
+  text-decoration: var(--fixed-width);
 }
 /*************
      Buttons 
@@ -175,14 +177,24 @@ button.block {
      FORM 
 *************/
 form {
-  width: 100%;
-  background: var(--white);
-  border-radius: var(--borderRadius);
+ /*  width: 50%;
+  height: 10%; */ 
+  box-sizing: border-box; 
+/*   background: var(--white); */
+  border-radius: 2px var(--borderRadius);
   box-shadow: var(--shadow-2);
-  padding: 2rem 2.5rem;
+  margin:  -25px;
+  padding: 50px;
 }
+
+.task-form{
+  width: 100%;
+  height: 10%;
+  background-color: var(--primary-100);
+
+}
+
 label {
-  display: block;
   font-size: var(--smallText);
   margin-bottom: 0.5rem;
   text-transform: capitalize;
@@ -191,18 +203,22 @@ label {
 input,
 textarea {
   width: 100%;
-  padding: 0.375rem 0.75rem;
+  height: 100%;
+  padding: 10px;
+  margin: 0 auto;
   border-radius: var(--borderRadius);
   background: var(--grey-50);
   border-color: transparent;
   border: 1px solid var(--grey-300);
+  border-bottom: var(--primary-900);
 }
-.form-row {
-  margin-bottom: 1rem;
+.form-flex {
+  margin-bottom: 10rem;
 }
 textarea {
   width: 100%;
-  height: 7rem;
+  height: 7rem; 
+/*  height: 100% */
 }
 
 ::placeholder {
@@ -216,16 +232,21 @@ textarea {
 
 .task-form,
 .single-task-form {
-  width: 90vw;
+  width: 200%;
+  height: 50%;
   max-width: var(--fixed-width);
   margin: 0 auto;
-  margin-top: 6rem;
+  margin-top: 2rem;
+
 }
 .task-form h4 {
-  text-align: center;
+  text-align: left;
+  margin: auto;
+  padding: auto;
 }
 .task-form .form-alert {
   margin-top: 1rem;
+
 }
 .submit-btn {
   width: 100%;
@@ -233,16 +254,20 @@ textarea {
 }
 @media screen and (min-width: 576px) {
   .form-control {
-    display: flex;
+    display:block;
   }
   .task-input {
     border-radius: 0;
     border-top-left-radius: var(--borderRadius);
+    border-top-right-radius: var(--borderRadius);
     border-bottom-left-radius: var(--borderRadius);
+    border-bottom-right-radius: var(--borderRadius); 
+    padding: 20px;
+    margin: 20px;
   }
   .submit-btn {
     margin-top: 0;
-    width: 175px;
+    width: 150px;
     border-radius: 0;
     border-top-right-radius: var(--borderRadius);
     border-bottom-right-radius: var(--borderRadius);
@@ -337,11 +362,45 @@ form > :last-child {
   margin: 0 auto;
   margin-top: 2rem;
   padding-bottom: 4rem;
+ /*  display: grid;
+  visibility: visible;
+  width: 200%;
+  height: 100%; */
+  color: var(--primary-500);
 }
+
 .tasks {
-  display: grid;
+  display: grid; 
+  width: 200%;
+  height: 100%;
   gap: 1rem;
+ /*  padding: 1rem 2.5rem;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  transition: var(--transition);
+  justify-content: space-between;
+  align-items: center;
+ */
 }
+ .grid-container { 
+  display: grid; 
+  width: 250px; 
+  grid-template-areas: "overlaydemo"; 
+} 
+.item-grid-content { 
+  grid-area: overlaydemo; 
+} 
+.item-grid-overlay {
+   grid-area: overlaydemo; 
+   display: flex; 
+   justify-content: center; 
+   align-items: center; 
+   font-size: 2rem; 
+   color:var(--primary-800);
+}
+
+
 .single-task {
   padding: 1rem 2.5rem;
   background: var(--white);
@@ -369,7 +428,7 @@ form > :last-child {
 .single-task .fa-check-circle {
   font-size: 1rem;
   color: var(--green-dark);
-  visibility: hidden;
+  visibility: visible;
 }
 .task-completed h5 {
   text-decoration: line-through;
@@ -382,7 +441,7 @@ form > :last-child {
 }
 /* Task Links */
 .task-links {
-  display: flex;
+  display: block;
   align-items: center;
   gap: 0 0.5rem;
 }
@@ -446,4 +505,5 @@ form > :last-child {
 .single-task-form .form-alert {
   text-align: center;
   margin-top: 1rem;
+  height: 50rem;
 }
