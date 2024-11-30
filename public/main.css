@@ -363,16 +363,16 @@ form > :last-child {
   margin-top: 2rem;
   padding-bottom: 4rem;
  /*  display: grid;
-  visibility: visible;
-  width: 200%;
-  height: 100%; */
+  visibility: visible; */
+/*   width: 200%;
+  height: 100%;  */
   color: var(--primary-500);
 }
 
 .tasks {
   display: grid; 
-  width: 200%;
-  height: 100%;
+  /* width: 200%;
+  height: 100%; */
   gap: 1rem;
  /*  padding: 1rem 2.5rem;
   background: var(--white);
@@ -383,24 +383,7 @@ form > :last-child {
   align-items: center;
  */
 }
- .grid-container { 
-  display: grid; 
-  width: 250px; 
-  grid-template-areas: "overlaydemo"; 
-} 
-.item-grid-content { 
-  grid-area: overlaydemo; 
-} 
-.item-grid-overlay {
-   grid-area: overlaydemo; 
-   display: flex; 
-   justify-content: center; 
-   align-items: center; 
-   font-size: 2rem; 
-   color:var(--primary-800);
-}
-
-
+ 
 .single-task {
   padding: 1rem 2.5rem;
   background: var(--white);
