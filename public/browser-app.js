@@ -2,6 +2,9 @@ const tasksDOM = document.querySelector('.tasks')
 const loadingDOM = document.querySelector('.loading-text')
 const formDOM = document.querySelector('.task-form')
 const taskInputDOM = document.querySelector('.task-input')
+const descInputDOM = document.querySelector('.desc-input')
+const dateInputDOM = document.querySelector('.date-input')
+const priorityInputDOM = document.querySelector('.select')
 const formAlertDOM = document.querySelector('.form-alert')
 
 
@@ -20,9 +23,14 @@ const showTasks = async () => {
     }
     const allTasks = tasks
       .map((task) => {
-        const { completed, _id: taskID, name } = task
+        const { completed, _id: taskID, name, description, date, priority } = task
         return `<div class="single-task ${completed && 'task-completed'}">
 <h5><span><i class="far fa-check-circle"></i></span>${name}</h5>
+<p>${description}</p>
+  <p>Date: ${new Date(date).toLocaleDateString()}</p> 
+        <p>Priority: ${priority}</p>  
+     
+
 <div class="task-links">
 
 
@@ -69,17 +77,24 @@ tasksDOM.addEventListener('click', async (e) => {
 
 // form
 
-formDOM.addEventListener('submit', async (e) => {
-  e.preventDefault()
-  const name = taskInputDOM.value
+form
 
+formDOM.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = taskInputDOM.value; 
+  const description = descInputDOM.value; 
+  const date = dateInputDOM.value; 
+  const priority = priorityInputDOM.value;
   try {
-    await axios.post('/api/v1/tasks', { name })
-    showTasks()
-    taskInputDOM.value = ''
-    formAlertDOM.style.display = 'block'
-    formAlertDOM.textContent = `success, task added`
-    formAlertDOM.classList.add('text-success')
+    await axios.post('/api/v1/tasks', { name, description, date, priority });
+    showTasks();
+     taskInputDOM.value = ''
+     descInputDOM.value = ''
+     dateInputDOM.value = ''
+     priorityInputDOM.value = 'low' 
+     formAlertDOM.style.display = 'block' 
+     formAlertDOM.textContent = `Task added`
+     formAlertDOM.classList.add('text-success')
   } catch (error) {
     formAlertDOM.style.display = 'block'
     formAlertDOM.innerHTML = `error, please try again`
@@ -89,10 +104,6 @@ formDOM.addEventListener('submit', async (e) => {
     formAlertDOM.classList.remove('text-success')
   }, 7500)
 })
-
-
-
-
 
 
 
