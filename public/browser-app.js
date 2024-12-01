@@ -80,20 +80,20 @@ tasksDOM.addEventListener('click', async (e) => {
 form
 
 formDOM.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const name = taskInputDOM.value; 
-  const description = descInputDOM.value; 
-  const date = dateInputDOM.value; 
-  const priority = priorityInputDOM.value;
+  e.preventDefault()
+  const name = taskInputDOM.value
+  const description = descInputDOM.value
+  const date = dateInputDOM.value
+  const priority = priorityInputDOM.value
   try {
-    await axios.post('/api/v1/tasks', { name, description, date, priority });
-    showTasks();
+    await axios.post('/api/v1/tasks', { name, description, date, priority })
+    showTasks()
      taskInputDOM.value = ''
      descInputDOM.value = ''
      dateInputDOM.value = ''
      priorityInputDOM.value = 'low' 
      formAlertDOM.style.display = 'block' 
-     formAlertDOM.textContent = `Task added`
+     formAlertDOM.textContent = `success, task added`
      formAlertDOM.classList.add('text-success')
   } catch (error) {
     formAlertDOM.style.display = 'block'
