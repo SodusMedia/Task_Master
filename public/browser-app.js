@@ -15,7 +15,7 @@ const showTasks = async () => {
     } = await axios.get('/api/v1/tasks')
     if (tasks.length < 1) {
       tasksDOM.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
-      loadingDOM.style.visibility = 'visible'
+      loadingDOM.style.visibility = 'hidden'
       return
     }
     const allTasks = tasks
@@ -88,7 +88,7 @@ formDOM.addEventListener('submit', async (e) => {
     formAlertDOM.style.display = 'none'
     formAlertDOM.classList.remove('text-success')
   }, 7500)
-});
+})
 
 
 
