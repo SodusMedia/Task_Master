@@ -6,10 +6,10 @@ const descInputDOM = document.querySelector('.desc-input')
 const dateInputDOM = document.querySelector('.date-input')
 const priorityInputDOM = document.querySelector('.select')
 const formAlertDOM = document.querySelector('.form-alert')
+let tempName;
 
 
-
-// Load tasks from /api/tasks
+// Load tasks from /api/tasks to display the task details
 const showTasks = async () => {
   loadingDOM.style.visibility = 'visible'
   try {
@@ -29,9 +29,7 @@ const showTasks = async () => {
 <p>${description}</p>
   <p>Date: ${new Date(date).toLocaleDateString()}</p> 
         <p>Priority: ${priority}</p>  
-     
-
-<div class="task-links">
+     <div class="task-links">
 
 
 
@@ -44,10 +42,9 @@ const showTasks = async () => {
 <i class="fas fa-trash"></i>
 </button>
 </div>
-</div>`
-
-      })
-      .join('')
+</div>` 
+ })
+    .join('')
     tasksDOM.innerHTML = allTasks
   } catch (error) {
     tasksDOM.innerHTML =
@@ -69,15 +66,13 @@ tasksDOM.addEventListener('click', async (e) => {
       await axios.delete(`/api/v1/tasks/${id}`)
       showTasks()
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
   loadingDOM.style.visibility = 'hidden'
 })
 
 // form
-
-form
 
 formDOM.addEventListener('submit', async (e) => {
   e.preventDefault()
@@ -96,6 +91,7 @@ formDOM.addEventListener('submit', async (e) => {
      formAlertDOM.textContent = `success, task added`
      formAlertDOM.classList.add('text-success')
   } catch (error) {
+    console.error('error')
     formAlertDOM.style.display = 'block'
     formAlertDOM.innerHTML = `error, please try again`
   }
@@ -103,7 +99,7 @@ formDOM.addEventListener('submit', async (e) => {
     formAlertDOM.style.display = 'none'
     formAlertDOM.classList.remove('text-success')
   }, 7500)
-})
+});
 
 
 
